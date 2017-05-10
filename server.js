@@ -30,16 +30,11 @@ hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
 });
 
-hbs.registerHelper('screamIt', (text) => {
-  return text.toUpperCase();
-});
-
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home',
     welcomeMessage: 'Hello'
   });
-  // res.send('<h1>Hello express</h1>');
 });
 
 app.get('/about', (req, res) => {
@@ -53,6 +48,12 @@ app.get('/bad', (req, res) => {
     errorMessage: 'Unable to comply'
   });
 })
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Portfolio page'
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is up at port ${port}`);
